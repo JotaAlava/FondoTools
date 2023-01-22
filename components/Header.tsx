@@ -3,6 +3,11 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { useUser } from '@auth0/nextjs-auth0/client';
 
+export enum FondoToolRoutes {
+	Home = '/' as any,
+	Reports = '/reports' as any
+}
+
 const Header: React.FC = () => {
 	const router = useRouter();
 	const isActive: (pathname: string) => boolean = (pathname) =>
@@ -64,15 +69,15 @@ const Header: React.FC = () => {
 				</li>
 				<li>
 					<a
-						href="/report"
+						href={FondoToolRoutes.Reports.toString()}
 						className={
-							isActive('/report')
+							isActive(FondoToolRoutes.Reports.toString())
 								? 'nav-link text-white active'
 								: 'nav-link text-white'
 						}
 					>
 						<svg className="bi me-2" width="16" height="16">
-							<use href="/report"></use>
+							<use href={FondoToolRoutes.Reports.toString()}></use>
 						</svg>
 						Reports
 					</a>
