@@ -1,0 +1,13 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// ENSURE THE DATABASE IS ALWAYS SET TO GMT TIMEZONE WITH: SET TIME ZONE 'GMT';
+// CHECK WITH: SHOW timezone and SELECT NOW();
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
