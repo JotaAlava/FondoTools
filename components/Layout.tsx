@@ -18,7 +18,7 @@ const Layout: React.FC<Props> = (props) => {
 			<div className="d-flex flex-column align-items-stretch bg-white w-100">
 				<div className="list-group list-group-flush scrollarea">
 					<a
-						href="/"
+						href="#"
 						className="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom"
 					>
 						<FontAwesomeIcon
