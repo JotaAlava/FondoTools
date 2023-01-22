@@ -1,6 +1,8 @@
+import { faFilePdf } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 import React, { ReactNode } from 'react';
-import Header, { FondoToolRoutes } from './Header';
+import Header, { FondoToolRouteLogo, FondoToolRoutes } from './Header';
 
 type Props = {
 	children: ReactNode;
@@ -8,9 +10,7 @@ type Props = {
 
 const Layout: React.FC<Props> = (props) => {
 	const router = useRouter();
-	const title: () => string = () => {
-		return FondoToolRoutes[router.pathname];
-	};
+	const title: () => string = () => FondoToolRoutes[router.pathname];
 
 	return (
 		<main>
@@ -22,9 +22,10 @@ const Layout: React.FC<Props> = (props) => {
 						href="/"
 						className="d-flex align-items-center flex-shrink-0 p-3 link-dark text-decoration-none border-bottom"
 					>
-						<svg className="bi me-2" width="30" height="24">
-							<use href="#bootstrap"></use>
-						</svg>
+						<FontAwesomeIcon
+							className="bi me-2"
+							icon={FondoToolRouteLogo[FondoToolRoutes[title()]]}
+						/>
 						<span className="fs-5 fw-semibold">{title()}</span>
 					</a>
 					<div className="p-3 scrollarea">{props.children}</div>
